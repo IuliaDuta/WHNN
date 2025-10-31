@@ -31,8 +31,11 @@ The required env is stored in: WHNN_env.yml
 
 ## Overview:
 TODO
-The main class of the project is models_set.SetHNN  
+`models_set.SetHNN(args)` -- creates MPNN-based hypergraph neural network 
 
+`layers_set.HyperLayer(enc_V2E, pool_V2E, enc_E2V, pool_E2V, args)` -- creates one MPNN layer with enc_V2E encoder and pool_V2E aggregator in the node-to-edge and enc_E2V encoder and pool_E2V for the edge-to-node
+
+`layers_set.SetLayer(..,proc_type,pooling_type,args)` -- creates one stage for the MPNN with proc_type encoder and pooling_type aggregator. Can be called for both node-to-edge and edge-to-node
 
 ## How to run the model
 TODO
