@@ -30,12 +30,27 @@ We would like to thank all the authors of the above papers for their work and fo
 The required env is stored in: WHNN_env.yml
 
 ## Overview:
-TODO
+
 `models_set.SetHNN(args)` -- creates MPNN-based hypergraph neural network 
 
 `layers_set.HyperLayer(enc_V2E, pool_V2E, enc_E2V, pool_E2V, args)` -- creates one MPNN layer with enc_V2E encoder and pool_V2E aggregator in the node-to-edge and enc_E2V encoder and pool_E2V for the edge-to-node
 
 `layers_set.SetLayer(..,proc_type,pooling_type,args)` -- creates one stage for the MPNN with proc_type encoder and pooling_type aggregator. Can be called for both node-to-edge and edge-to-node
+
+`equiv_set.MLP_DS(..)` -- creates the MLP encoder (edge-independent)  
+
+`equiv_set.Identity(..)` -- creates the Identity encoder (edge-independent)  
+
+`equiv_set.SAB(..)` -- creates the SAB encoder (edge-dependent)  
+
+`equiv_set.ISAB(..)` -- creates the ISAB encoder (edge-dependent)  
+
+`pooling_set.GAP` -- creates the DeepSet aggregator
+
+`pooling_set.PMAPool` -- creates the PMA aggregator
+
+`pooling_set.FPSWE_pool` -- creates the Wasserstein aggregator (anch_freeze=True for FPSWE)
+
 
 ## How to run the model
 TODO
