@@ -2,9 +2,14 @@
 
 This is the official code for WHNN models as introduced in [Wasserstein Hypergraph Neural Network](https://arxiv.org/abs/2506.09682)
 
+<div align="center">
+  <img src="WHNN.png" width="500px" />
+</div>
+
+
 ## Citation
 Please use the following BibTeX to cite our work.
-
+```
 @misc{duta2025wassersteinhypergraphneuralnetwork,
       title={Wasserstein Hypergraph Neural Network}, 
       author={Iulia Duta and Pietro Liò},
@@ -14,7 +19,7 @@ Please use the following BibTeX to cite our work.
       primaryClass={cs.LG},
       url={https://arxiv.org/abs/2506.09682}, 
 }
-
+```
 
 Note: The general pipeline used in this repo is based on the public repository of https://github.com/jianhao2016/AllSet and https://github.com/Graph-COM/ED-HNN. 
 In implementing the poolings, we also use functions from https://github.com/mint-vu/backbone_vs_pooling/blob/main/poolings/attention.py
