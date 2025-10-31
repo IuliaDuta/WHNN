@@ -49,19 +49,32 @@ The required env is stored in: WHNN_env.yml
 
 `pooling_set.PMAPool` -- creates the PMA aggregator
 
-`pooling_set.FPSWE_pool` -- creates the Wasserstein aggregator (anch_freeze=True for FPSWE)
+`pooling_set.FPSWE_pool` -- creates the Wasserstein aggregator (`anch_freeze=True` for FPSWE)
 
 
-## How to run the model
-TODO
-For creating a model with Wasserstein aggregator set `--pooling_type=FPSWE` (for fixed references) or `--pooling_type=LPSWE` (for learnable references)
+## How to use the model:
 
-For creating a model with MLPnode encoder set `--proc_type=MLP`, while for the SAB/ISAB node encoder set `--proc_type=SAB` or `--proc_type=ISAB`
+E.g. To create a WHNN layer with MLP encoder and fixed Wasserstein aggregator on both node-to-edge and edge-to-node stages:
+
+```
+layer = HyperLayer(proc_type_V2E='MLP', pooling_type_V2E='FPSWE', proc_type_E2V='MLP', pooling_type_E2V='FPSWE', args=args)
+```
+
+E.g. To create a WHNN layer with SAB encoder and learnable Wasserstein aggregator on both node-to-edge and edge-to-node stages:
+
+```
+layer = HyperLayer(proc_type_V2E='SAB', pooling_type_V2E='LPSWE', proc_type_E2V='SAB', pooling_type_E2V='LPSWE', args=args)
+```
+
+
 
 ## Datasets
 To generate datasets please follow the instructions from https://github.com/jianhao2016/AllSet and place the data folder in `../data`
 
 ## Example of script to run one experiment on Citeseer
+For creating a model with Wasserstein aggregator set `--pooling_type=FPSWE` (for fixed references) or `--pooling_type=LPSWE` (for learnable references)
+
+For creating a model with MLP encoder set `--proc_type=MLP`, while for the SAB/ISAB node encoder set `--proc_type=SAB` or `--proc_type=ISAB`
 
 ```
 CUDA_VISIBLE_DEVICES=0 python train.py --All_num_layers=1 --Classifier_hidden=256 --Classifier_num_layers=1 --MLP3_num_layers=0 --MLP_hidden=256 --MLP_num_layers=2 --add_self_loop=False --apprepset_n_anchors=5 --deepset_input_norm=True --dname=citeseer --dropout=0.7 --epochs=300 --feature_noise=1 --fpswe_out=linear --heads=4 --input_dropout=0.6 --lr=0.001 --method=SetHNN --normalization=ln --pooling_type=FPSWE_test --proc_type=SAB --runs=10 --wd=0
